@@ -1,0 +1,19 @@
+.content {
+  margin-top: 50px;
+}
+.dashboard-item {
+  background-color: darkblue;
+  width: 100%;
+  padding: 25px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.dashboard-item a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.table tr th {
+  padding-right: 50px;
+}

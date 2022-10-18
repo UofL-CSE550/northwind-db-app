@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Products{% endblock %}
+
+{% block content %}
+    <div class="p-5 bg-primary text-white text-center">
+        <div class="container">
+            <h1>Products</h1>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Category</th>
+                    <th>Product Code</th>
+                    <th>Product Name</th>
+                    <th>Standard Cost</th>
+                    <th>List Price</th>
+                    <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td><a href="/dashboard/products/{{ product.id }}">{{ product.id }}</a></td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.product_code }}</td>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.standard_cost }}</td>
+                    <td>{{ product.list_price }}</td>
+                    <td>{{ product.quantity_per_unit }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% include "pagination.html" with page=products %}
+    </div>
+{% endblock %}

@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+{% block title %}Order{% endblock %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static "css/dashboard.css" %}">
+
+{% block content %}
+    <div class="p-5 bg-primary text-white text-center">
+        <div class="container">
+            <h1>Order ID : {{ order.id }}</h1>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="customer">
+                    <div class="card">
+                      <div class="card-header">
+                        Customer Info
+                      </div>
+                      <div class="card-body">
+                          <table class="table table-responsive table-striped card-text">
+                              <tr>
+                                <th>Company </th>
+                                <td>{{ order.customer.company }}</td>
+                              </tr>
+                              <tr>
+                                <th>Company Phone </th>
+                                <td>{{ order.customer.business_phone }}</td>
+                              </tr>
+                              <tr>
+                                <th>First name </th>
+                                <td>{{ order.customer.first_name }}</td>
+                              </tr>
+                              <tr>
+                                <th>Last name </th>
+                                <td>{{ order.customer.last_name }}</td>
+                              </tr>
+                              <tr>
+                                <th>Email </th>
+                                <td>{{ order.customer.email_address }}</td>
+                              </tr>
+                              <tr>
+                                <th>Job Title </th>
+                                <td>{{ order.customer.job_title }}</td>
+                              </tr>
+                              <tr>
+                                <th>Mobile Phone </th>
+                                <td>{{ order.customer.mobile_phone }}</td>
+                              </tr>
+                              <tr>
+                                <th>Home Phone </th>
+                                <td>{{ order.customer.home_phone }}</td>
+                              </tr>
+                              <tr>
+                                <th>Address </th>
+                                <td>{{ order.customer.address }}</td>
+                              </tr>
+                              <tr>
+                                <th>City </th>
+                                <td>{{ order.customer.city }}</td>
+                              </tr>
+                              <tr>
+                                <th>Province </th>
+                                <td>{{ order.customer.state_province }}</td>
+                              </tr>
+                              <tr>
+                                <th>Postal Code </th>
+                                <td>{{ order.customer.zip_postal_code }}</td>
+                              </tr>
+                              <tr>
+                                <th>Country Region </th>
+                                <td>{{ order.customer.country_region }}</td>
+                              </tr>
+                              <tr>
+                                <th>Web page </th>
+                                <td>{{ order.customer.web_page }}</td>
+                              </tr>
+                              <tr>
+                                <th>Notes </th>
+                                <td>{{ order.customer.notes }}</td>
+                            </tr>
+                          </table>
+
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="order">
+                    <div class="card">
+                      <div class="card-header">
+                        Order Info
+                      </div>
+                      <div class="card-body">
+                        <table class="table table-responsive table-striped card-text">
+                            <tr>
+                                <th>Order Date</th>
+                                <td>{{ order.order_date }}</td>
+                            </tr>
+                            <tr>
+                                <th>Order Status</th>
+                                <td>{{ order.status.status_name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Shipped Date</th>
+                                <td>{{ order.shipped_date }}</td>
+                            </tr>
+                            <tr>
+                                <th>Shipper</th>
+                                <td>{{ order.shipper.company }}</td>
+                            </tr>
+                            <tr>
+                                <th>Shipper Name</th>
+                                <td>{{ order.ship_name }}</td>
+                            </tr>
+{#                            <tr>#}
+{#                                <th>Shipper Address</th>#}
+{#                                <td>{{ order.ship_address }}</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <th>Shipper City</th>#}
+{#                                <td>{{ order.ship_city }}</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <th>Shipper Province</th>#}
+{#                                <td>{{ order.ship_state_province }}</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <th>Shipper Postal Code</th>#}
+{#                                <td>{{ order.ship_zip_postal_code }}</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <th>Shipper Region</th>#}
+{#                                <td>{{ order.ship_country_region }}</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <th>Shipping Fee</th>#}
+{#                                <td>{{ order.shipping_fee }}</td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <th>Taxes</th>#}
+{#                                <td>{{ order.taxes }}</td>#}
+{#                            </tr>#}
+                            <tr>
+                                <th>Paid Date</th>
+                                <td>{{ order.paid_date }}</td>
+                            </tr>
+                            <tr>
+                                <th>Payment Type</th>
+                                <td>{{ order.payment_type }}</td>
+                            </tr>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="card mt-5">
+                      <h5 class="card-header">Invoice Details</h5>
+                      <div class="card-body">
+                        <table class="table table-responsive table-striped card-text">
+                            <tr>
+                                <th>Invoice No</th>
+                                <td>{{ invoice.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Due Date</th>
+                                <td>{{ invoice.due_date }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tax</th>
+                                <td>{{ invoice.tax }}</td>
+                            </tr>
+                            <tr>
+                                <th>Shipping</th>
+                                <td>{{ invoice.shipping }}</td>
+                            </tr>
+                            <tr>
+                                <th>Amount Due</th>
+                                <td>{{ invoice.amount_due }}</td>
+                            </tr>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 mt-5">
+                <div class="order">
+                    <div class="card">
+                      <div class="card-header">
+                        {{ order_details.count }} Order Details
+                      </div>
+                      <div class="card-body">
+                        <table class="table table-bordered table-responsive table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Product Code</th>
+                                    <th>Product Name</th>
+                                    <th>Unit Price</th>
+                                    <th>Discount</th>
+                                    <th>Quantity</th>
+                                    <th>Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for detail in order_details %}
+                                <tr>
+                                    <td>{{ detail.product.product_code }}</td>
+                                    <td>{{ detail.product.product_name }}</td>
+                                    <td>{{ detail.unit_price }}</td>
+                                    <td>{{ detail.discount }}</td>
+                                    <td>{{ detail.quantity }}</td>
+                                    <td>{{ detail.status.status_name }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+{#                        {% include "pagination.html" with page=products %}#}
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="my-3">
+            <a class="btn btn-primary" href="/dashboard/orders">Back to Orders</a>
+        </div>
+    </div>
+{% endblock %}

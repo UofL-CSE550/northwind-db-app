@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ product.product_name }} {% endblock %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static "css/dashboard.css" %}">
+
+{% block content %}
+    <div class="p-5 bg-primary text-white text-center">
+        <div class="container">
+            <h1>{{ product.category }} : {{ product.product_name }}</h1>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Product Code</th>
+                    <th>Product Name</th>
+                    <th>Standard Cost</th>
+                    <th>List Price</th>
+                    <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.product_code }}</td>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.standard_cost }}</td>
+                    <td>{{ product.list_price }}</td>
+                    <td>{{ product.quantity_per_unit }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="/dashboard/products">Back to Products</a>
+    </div>
+{% endblock %}

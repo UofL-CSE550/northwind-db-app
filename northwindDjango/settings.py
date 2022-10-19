@@ -79,10 +79,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'northwind',
-        'USER': 'cse631',
+        'USER': 'northwind',
         'HOST': '172.24.16.32',
         'PORT': 3306,
-        'PASSWORD': 'cse631_vm2'
+        'PASSWORD': 'northwind'
     }
 }
 

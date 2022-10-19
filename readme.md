@@ -1,16 +1,34 @@
 # Northwind Web Application
 ## 1. Clone the repository
     git clone https://github.com/UofL-CSE550/northwind-db-app.git
+
+##### Note: Open the cloned project in VS Code or any other Text Editor, then open the integrated terminate of your Text Editor or IDE
+
 ## 2. Create your own virtual environment
-    python -m venv venv (python3 -m venv venv for mac os)
-    (windows) venv\Scripts\activate or (mac os) source venv/bin/activate
-Virtual environments are where dependencies are stored, similar to node_modules in JavaScript. Every time you start your machine, you must activate the virtual environment using source venv/bin/activate.
+Virtual environments are where dependencies are stored, 
+similar to node_modules in JavaScript. 
+Every time you start your machine, 
+you must activate the virtual environment using source venv/bin/activate.
+
+#### Windows
+
+    python -m venv venv 
+
+#### Mac OS
+
+    python3 -m venv venv
+
+#### Active the Virtual Environment in Windows Users
+    venv\Scripts\activate 
+
+#### Active the Virtual Environment in Mac OS users
+    source venv/bin/activate
 
 ## 3. Install your requirements
     pip install -r requirements.txt
 
 ## 4. Create a .env file
-Create a .env file under "northwindDjango" directory and set the following parameter:
+Create the .env file under "northwindDjango" directory and set the following parameter:
 
     SECRET_KEY=
     DB_HOST=
@@ -18,6 +36,12 @@ Create a .env file under "northwindDjango" directory and set the following param
     DB_NAME=
     DB_USER=
     DB_PASS=
+
+Run the below git command to remove the file from git 
+tracking if the .env file is tracked by git.
+
+    git rm --cached .\northwindDjango\.env
+
 If the above parameter are set, you won't be able to connect to the database
 
 ## 5. Database
@@ -38,5 +62,5 @@ Run the above command to create a super-user and follow the prompt.
 #### Note: Don't run the migrations command when connect to UofL database server through VPN.
 
 ## 8. Run the application
-    python manage.py runserver 8000
+    python manage.py runserver 8083
     

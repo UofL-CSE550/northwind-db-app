@@ -2,6 +2,7 @@ from django.db import models
 
 
 # Create your models here.
+# Run "python manage.py inspectdb > models.py" to generate models based on database tables
 class Customer(models.Model):
     company = models.CharField(max_length=50, blank=True, null=True)
     last_name = models.CharField(max_length=50, blank=True, null=True)

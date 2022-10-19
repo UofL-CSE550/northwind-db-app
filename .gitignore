@@ -26,4 +26,4 @@
 
 # Virtual Environment
 /venv
-/northwindDjango/.env/
+/northwindDjango/.env/**

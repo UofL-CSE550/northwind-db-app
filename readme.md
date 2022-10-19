@@ -1,6 +1,5 @@
 <h1 align="center">
-    Northwind Web Application <br>
-    How to Clone and Run the Application
+    How to Clone and Run Northwind Web Application
 </h1>
 
 ## 1. Clone the repository

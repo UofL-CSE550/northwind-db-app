@@ -1,4 +1,8 @@
-# Northwind Web Application
+<h1 align="center">
+    Northwind Web Application <br>
+    How to Clone and Run the Application
+</h1>
+
 ## 1. Clone the repository
     git clone https://github.com/UofL-CSE550/northwind-db-app.git
 
@@ -18,10 +22,10 @@ you must activate the virtual environment using source venv/bin/activate.
 
     python3 -m venv venv
 
-#### Active the Virtual Environment in Windows Users
+#### Activate the Virtual Environment in Windows Users
     venv\Scripts\activate 
 
-#### Active the Virtual Environment in Mac OS users
+#### Activate the Virtual Environment in Mac OS users
     source venv/bin/activate
 
 ## 3. Install your requirements
@@ -63,4 +67,6 @@ Run the above command to create a super-user and follow the prompt.
 
 ## 8. Run the application
     python manage.py runserver 8083
+
+<h3 align="center">Thank you</h3>
     

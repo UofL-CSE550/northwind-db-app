@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Customers{% endblock %}
+
+{% block content %}
+    <div class="p-5 bg-primary text-white text-center">
+        <div class="container">
+            <h1>Customers</h1>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Job Title</th>
+                    <th>Company</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                <tr>
+                    <td>
+                        <a href="/dashboard/customers/{{ customer.id }}">{{ customer.id }}</a>
+                    </td>
+                    <td>{{ customer.first_name }} {{ customer.last_name }}</td>
+                    <td>{{ customer.email_address }}</td>
+                    <td>{{ customer.mobile_phone }}</td>
+                    <td>{{ customer.job_title }}</td>
+                    <td>{{ customer.company }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% include "pagination.html" with page=customers %}
+    </div>
+{% endblock %}

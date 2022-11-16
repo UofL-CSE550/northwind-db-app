@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block title %}{{ customer.last_name }}{% endblock %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static "css/dashboard.css" %}">
+
+{% block content %}
+    <div class="p-5 bg-primary text-white text-center">
+        <div class="container">
+            <h1>Customer ID : {{ customer.id }}</h1>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="customer">
+                    <div class="card">
+                      <div class="card-header">
+                        Customer Info
+                      </div>
+                      <div class="card-body">
+                          <table class="table table-responsive table-striped card-text">
+                              <tr>
+                                <th>Company </th>
+                                <td>{{ customer.company }}</td>
+                              </tr>
+                              <tr>
+                                <th>Company Phone </th>
+                                <td>{{ customer.business_phone }}</td>
+                              </tr>
+                              <tr>
+                                <th>Customer name </th>
+                                <td>{{ customer.first_name }} {{ customer.last_name }}</td>
+                              </tr>
+                              <tr>
+                                <th>Email </th>
+                                <td>{{ customer.email_address }}</td>
+                              </tr>
+                              <tr>
+                                <th>Job Title </th>
+                                <td>{{ customer.job_title }}</td>
+                              </tr>
+                              <tr>
+                                <th>Mobile Phone </th>
+                                <td>{{ customer.mobile_phone }}</td>
+                              </tr>
+                              <tr>
+                                <th>Home Phone </th>
+                                <td>{{ customer.home_phone }}</td>
+                              </tr>
+                          </table>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="customer">
+                    <div class="card">
+                      <div class="card-header">
+                        Customer Address
+                      </div>
+                      <div class="card-body">
+                          <table class="table table-responsive table-striped card-text">
+                              <tr>
+                                <th>Address </th>
+                                <td>{{ customer.address }}</td>
+                              </tr>
+                              <tr>
+                                <th>City </th>
+                                <td>{{ customer.city }}</td>
+                              </tr>
+                              <tr>
+                                <th>Province </th>
+                                <td>{{ customer.state_province }}</td>
+                              </tr>
+                              <tr>
+                                <th>Postal Code </th>
+                                <td>{{ customer.zip_postal_code }}</td>
+                              </tr>
+                              <tr>
+                                <th>Country Region </th>
+                                <td>{{ customer.country_region }}</td>
+                              </tr>
+                              <tr>
+                                <th>Web page </th>
+                                <td>{{ customer.web_page }}</td>
+                              </tr>
+                              <tr>
+                                <th>Notes </th>
+                                <td>{{ customer.notes }}</td>
+                            </tr>
+                          </table>
+
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 mt-5">
+                <div class="order">
+                    <div class="card">
+                      <div class="card-header">
+                        {{ customer_orders|length }} Orders
+                      </div>
+                      <div class="card-body">
+                        <table class="table table-bordered table-responsive table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Order Date</th>
+                                    <th>Payment Type</th>
+                                    <th>Paid Date</th>
+                                    <th>Order Status</th>
+                                    <th>Employee</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in customer_orders %}
+                                <tr>
+                                    <td>
+                                        <a href="/dashboard/orders/{{ order.id }}">{{ order.id }}</a>
+                                    </td>
+                                    <td>{{ order.customer.last_name }}</td>
+                                    <td>{{ order.order_date }}</td>
+                                    <td>{{ order.payment_type }}</td>
+                                    <td>{{ order.paid_date }}</td>
+                                    <td>{{ order.status.status_name }}</td>
+                                    <td>{{ order.employee.last_name }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% include "pagination.html" with page=customer_orders %}
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="my-3">
+            <a class="btn btn-primary" href="/dashboard/customers">Back to Customers</a>
+        </div>
+    </div>
+{% endblock %}

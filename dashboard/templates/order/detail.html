@@ -155,33 +155,37 @@
                       </div>
                     </div>
 
-                    <div class="card mt-5">
-                      <h5 class="card-header">Invoice Details</h5>
+                    <div class="card mt-5" >
+                      <h5 class="card-header">Invoice Detail</h5>
                       <div class="card-body">
-                        <table class="table table-responsive table-striped card-text">
-                            <tr>
-                                <th>Invoice No</th>
-                                <td>{{ invoice.id }}</td>
-                            </tr>
-                            <tr>
-                                <th>Due Date</th>
-                                <td>{{ invoice.due_date }}</td>
-                            </tr>
-                            <tr>
-                                <th>Tax</th>
-                                <td>{{ invoice.tax }}</td>
-                            </tr>
-                            <tr>
-                                <th>Shipping</th>
-                                <td>{{ invoice.shipping }}</td>
-                            </tr>
-                            <tr>
-                                <th>Amount Due</th>
-                                <td>{{ invoice.amount_due }}</td>
-                            </tr>
-                        </table>
+                          {% if invoice %}
+                            <table class="table table-responsive table-striped card-text">
+                                <tr>
+                                    <th>Invoice No</th>
+                                    <td>{{ invoice.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Due Date</th>
+                                    <td>{{ invoice.due_date }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Tax</th>
+                                    <td>{{ invoice.tax }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Shipping</th>
+                                    <td>{{ invoice.shipping }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Amount Due</th>
+                                    <td>{{ invoice.amount_due }}</td>
+                                </tr>
+                            </table>
+                          {% else %}
+                            <p>Order number {{ order.id }} donot have an open invoice</p>
+                          {% endif %}
                       </div>
-                    </div>
+                    </div >
                 </div>
             </div>
         </div>
@@ -190,7 +194,7 @@
                 <div class="order">
                     <div class="card">
                       <div class="card-header">
-                        {{ order_details.count }} Order Details
+                        {{ order_details|length }} Order Details
                       </div>
                       <div class="card-body">
                         <table class="table table-bordered table-responsive table-striped">
@@ -217,7 +221,7 @@
                                 {% endfor %}
                             </tbody>
                         </table>
-{#                        {% include "pagination.html" with page=products %}#}
+                        {% include "pagination.html" with page=order_details %}
                       </div>
                     </div>
                 </div>
